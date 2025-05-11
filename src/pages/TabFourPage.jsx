@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo } from "../redux/todoSlice";
+import { addTodo, removeTodo } from "../redux/todoSlice";
 
 const TabFourPage = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const TabFourPage = () => {
   };
 
   const handleDeleteTodo = (id) => {
-    console.log(id);
+    dispatch(removeTodo(id));
   };
   return (
     <Box>
