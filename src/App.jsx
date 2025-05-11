@@ -1,11 +1,14 @@
 import TabOnePage from "./pages/TabOnePage";
-import TabTwoPage from "./pages/TabTwoPage";
-import TabThreePage from "./pages/TabThreePage";
-import TabFourPage from "./pages/TabFourPage";
-import TabFivePage from "./pages/TabFivePage";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Container } from "@mui/material";
 import Header from "./components/Header";
+import {
+  TabFivePage,
+  TabFourPage,
+  TabThreePage,
+  TabTwoPage,
+} from "./routes/lazyRoutes";
+import { Suspense } from "react";
 
 function App() {
   return (
@@ -15,10 +18,38 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/tab1" />} />
           <Route path="/tab1" element={<TabOnePage />} />
-          <Route path="/tab2" element={<TabTwoPage />} />
-          <Route path="/tab3" element={<TabThreePage />} />
-          <Route path="/tab4" element={<TabFourPage />} />
-          <Route path="/tab5" element={<TabFivePage />} />
+          <Route
+            path="/tab2"
+            element={
+              <Suspense fallback={"Loading..."}>
+                <TabTwoPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/tab3"
+            element={
+              <Suspense fallback={"Loading..."}>
+                <TabThreePage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/tab4"
+            element={
+              <Suspense fallback={"Loading..."}>
+                <TabFourPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/tab5"
+            element={
+              <Suspense fallback={"Loading..."}>
+                <TabFivePage />
+              </Suspense>
+            }
+          />
         </Routes>
       </Container>
     </div>
