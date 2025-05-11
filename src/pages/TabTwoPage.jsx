@@ -1,9 +1,10 @@
 import { Box, Button } from "@mui/material";
-import React from "react";
 import { useNavigate } from "react-router-dom";
+import UserTable from "../components/UserTable";
 
 const TabTwoPage = () => {
   const navigate = useNavigate();
+
   return (
     <Box>
       <Button
@@ -14,6 +15,8 @@ const TabTwoPage = () => {
       >
         Navigate to Tab 3
       </Button>
+
+      <UserTable />
     </Box>
   );
 };
